@@ -34,5 +34,20 @@ func TestSelectionSort(t *testing.T) {
 }
 
 func selectionSort(nums []int) []int {
-	return nil
+	// For i from 0 to n-1
+	//  Find the smallest number between numbers[i] and numbers[n-1]
+	//	Swap the smallest number with numbers[i]
+
+	for i := 0; i < len(nums)-1; i++ {
+		minIndex := i
+		for j := i + 1; j < len(nums); j++ {
+			if nums[j] < nums[i] {
+				minIndex = j
+			}
+		}
+		if minIndex != i {
+			nums[i], nums[minIndex] = nums[minIndex], nums[i]
+		}
+	}
+	return nums
 }
