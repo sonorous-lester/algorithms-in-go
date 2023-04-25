@@ -57,14 +57,14 @@ func binarySearch(want int, numbers []int) bool {
 	//	if the actual is smaller than want
 	//		search left side of the array
 
-	middle := len(numbers) / 2
+	if len(numbers) == 1 && numbers[0] != want {
+		return false
+	}
+
+	middle := (len(numbers) - 1) / 2
 	actual := numbers[middle]
 	if actual == want {
 		return true
-	}
-
-	if middle == 0 && actual != want {
-		return false
 	}
 
 	if actual > want {
