@@ -24,6 +24,21 @@ func TestBinarySearch(t *testing.T) {
 			numberWantToFind: 20,
 			result:           false,
 		},
+		{
+			input:            []int{-1, 2},
+			numberWantToFind: 0,
+			result:           false,
+		},
+		{
+			input:            []int{-1, 2},
+			numberWantToFind: 2,
+			result:           true,
+		},
+		{
+			input:            []int{0},
+			numberWantToFind: 2,
+			result:           false,
+		},
 	}
 
 	for _, ts := range cases {
