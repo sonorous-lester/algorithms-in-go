@@ -46,6 +46,11 @@ func TestBinarySearch(t *testing.T) {
 		assert.Equal(t, ts.result, find)
 	}
 
+	for _, ts := range cases {
+		find := binarySearch2(ts.numberWantToFind, ts.input)
+		assert.Equal(t, ts.result, find)
+	}
+
 }
 
 func binarySearch(want int, numbers []int) bool {
@@ -72,4 +77,24 @@ func binarySearch(want int, numbers []int) bool {
 	} else {
 		return binarySearch(want, numbers[middle:])
 	}
+}
+
+func binarySearch2(want int, nums []int) bool {
+
+	start := 0
+	end := len(nums) - 1
+
+	for start <= end {
+		middle := (start + end) / 2
+		if nums[middle] == want {
+			return true
+		}
+
+		if nums[middle] > want {
+			end = middle - 1
+		} else {
+			start = middle + 1
+		}
+	}
+	return false
 }
