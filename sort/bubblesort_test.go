@@ -28,6 +28,20 @@ func TestBubbleSort(t *testing.T) {
 
 }
 
-func bubbleSort(input []int) []int {
-	return nil
+func bubbleSort(nums []int) []int {
+	if len(nums) == 1 {
+		return nums
+	}
+	swap := false
+	for swap {
+		swap = true
+		for i := 0; i < len(nums)-2; i++ {
+			j := i + 1
+			if nums[i] > nums[j] {
+				nums[i], nums[j] = nums[j], nums[i]
+				swap = true
+			}
+		}
+	}
+	return nums
 }
