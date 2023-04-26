@@ -24,15 +24,17 @@ func TestFactorial(t *testing.T) {
 
 	for _, ts := range tss {
 		actual := calculateFactorial(ts.input)
-		assert.ElementsMatch(t, ts.expect, actual)
+		assert.Equal(t, ts.expect, actual)
 	}
 
 }
 
 func calculateFactorial(num int) int {
 	// base case
-
-	// recursive case
-
-	return 0
+	if num == 1 {
+		return 1
+	} else {
+		// recursive case
+		return num * calculateFactorial(num-1)
+	}
 }
