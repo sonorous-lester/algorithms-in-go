@@ -32,9 +32,9 @@ func bubbleSort(nums []int) []int {
 	if len(nums) == 1 {
 		return nums
 	}
-	swap := false
+	swap := true
 	for swap {
-		swap = true
+		swap = false
 		for i := 0; i < len(nums)-2; i++ {
 			j := i + 1
 			if nums[i] > nums[j] {
